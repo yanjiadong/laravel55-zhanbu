@@ -6,6 +6,25 @@
  * Time: 上午10:44
  */
 
+if(!function_exists('get_success_api_response'))
+{
+    function get_success_api_response($result)
+    {
+        $response=['code'=>200,'result'=>$result];
+        return $response;
+    }
+}
+
+if(!function_exists('get_error_api_response'))
+{
+    function get_error_api_response($code = 300, $message = '')
+    {
+        $response=['code'=>$code,'message'=>$message];
+        return $response;
+    }
+
+}
+
 if(!function_exists('bz'))
 {
     function bz($nian1,$yue1,$ri1,$hh1,$xingbie = '男')

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Overtrue\ChineseCalendar\Calendar;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function index(Request $request)
     {
@@ -24,4 +23,10 @@ class IndexController extends Controller
         //print_r($result);
         return ['result1'=>$result1,'result2'=>$result2];
     }
+
+    public function test()
+    {
+        return ['code'=>200,'info'=>'test'];
+    }
+
 }
