@@ -15,10 +15,16 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('wechat_avatar')->default('')->comment('微信头像')->nullable();
+            $table->string('wechat_nickname')->default('')->comment('微信昵称');
+            $table->string('wechat_openid')->default('')->comment('微信openid');
+            $table->text('wechat_original')->comment('微信返回的信息  json储存')->nullable();
+            $table->tinyInteger('sex')->default(1)->comment('1=男 2=女');
+            $table->string('birth_year',12)->comment('出生年');
+            $table->string('birth_month',12)->default('')->comment('出生月');
+            $table->string('birth_day',12)->default('')->comment('出生日');
+            $table->string('birth_hour',12)->default('')->comment('出生时');
+            $table->string('birth_minute',12)->default('')->comment('出生分');
             $table->timestamps();
         });
     }

@@ -6,11 +6,20 @@
  * Time: 上午10:44
  */
 
-if(!function_exists('get_success_api_response'))
+if(!function_exists('get_api_response'))
 {
-    function get_success_api_response($result)
+    function get_api_response($result)
     {
         $response=['code'=>200,'result'=>$result];
+        return $response;
+    }
+}
+
+if(!function_exists('get_success_api_response'))
+{
+    function get_success_api_response($message)
+    {
+        $response=['code'=>200,'message'=>$message];
         return $response;
     }
 }
@@ -23,6 +32,157 @@ if(!function_exists('get_error_api_response'))
         return $response;
     }
 
+}
+
+//根据地支算出多个天干
+if(!function_exists('get_tiangan_by_dizhi'))
+{
+    function get_tiangan_by_dizhi($tiangan)
+    {
+        $dizhi = [];
+
+        switch ($tiangan)
+        {
+            case '子':
+                $dizhi = ['癸'];
+                break;
+            case '丑':
+                $dizhi = ['己','癸','辛'];
+                break;
+            case '寅':
+                $dizhi = ['甲','丙','戊'];
+                break;
+            case '卯':
+                $dizhi = ['乙'];
+                break;
+            case '辰':
+                $dizhi = ['戊','乙','癸'];
+                break;
+            case '巳':
+                $dizhi = ['丙','庚','戊'];
+                break;
+            case '午':
+                $dizhi = ['丁','己'];
+                break;
+            case '未':
+                $dizhi = ['己','丁','乙'];
+                break;
+            case '申':
+                $dizhi = ['庚','壬','戊'];
+                break;
+            case '酉':
+                $dizhi = ['辛'];
+                break;
+            case '戌':
+                $dizhi = ['戊','辛','丁'];
+                break;
+            case '亥':
+                $dizhi = ['壬','甲'];
+                break;
+        }
+
+        return $dizhi;
+    }
+}
+
+if(!function_exists('get_lunar_hour'))
+{
+    function get_lunar_hour($hour)
+    {
+        $result = '';
+        if($hour>=23 && $hour<24)
+        {
+            $result = '子时';
+        }
+        elseif($hour>=1 && $hour<3)
+        {
+            $result = '丑时';
+        }
+        elseif($hour>=3 && $hour<5)
+        {
+            $result = '寅时';
+        }
+        elseif($hour>=5 && $hour<7)
+        {
+            $result = '卯时';
+        }
+        elseif($hour>=7 && $hour<9)
+        {
+            $result = '辰时';
+        }
+        elseif($hour>=9 && $hour<11)
+        {
+            $result = '巳时';
+        }
+        elseif($hour>=11 && $hour<13)
+        {
+            $result = '午时';
+        }
+        elseif($hour>=13 && $hour<15)
+        {
+            $result = '未时';
+        }
+        elseif($hour>=15 && $hour<17)
+        {
+            $result = '申时';
+        }
+        elseif($hour>=17 && $hour<19)
+        {
+            $result = '酉时';
+        }
+        elseif($hour>=19 && $hour<21)
+        {
+            $result = '戌时';
+        }
+        elseif($hour>=21 && $hour<23)
+        {
+            $result = '亥时';
+        }
+        return $result;
+    }
+}
+
+if(!function_exists('get_day_gan_image'))
+{
+    function get_day_gan_image($day_gan)
+    {
+        $image = 'http://p15eu3hv7.bkt.clouddn.com/jia_1.png';
+        switch ($day_gan)
+        {
+            case '甲':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/jia_1.png";
+                break;
+            case '乙':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/yi_1.png";
+                break;
+            case '丙':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/bing_1.png";
+                break;
+            case '丁':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/ding_1.png";
+                break;
+            case '戊':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/wu_1.png";
+                break;
+            case '己':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/ji_1.png";
+                break;
+            case '庚':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/geng_1.png";
+                break;
+            case '辛':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/xin_1.png";
+                break;
+            case '壬':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/ren_1.png";
+                break;
+            case '癸':
+                $image = "http://p15eu3hv7.bkt.clouddn.com/gi_1.png";
+                break;
+        }
+
+        return $image;
+    }
 }
 
 if(!function_exists('bz'))
@@ -60,18 +220,18 @@ if(!function_exists('bz'))
         $a[20] = "癸";
 
         //十二地支
-        $a[31] = "子 ";
-        $a[32] = "丑 ";
-        $a[33] = "寅 ";
-        $a[34] = "卯 ";
-        $a[35] = "辰 ";
-        $a[36] = "巳 ";
-        $a[37] = "午 ";
-        $a[38] = "未 ";
-        $a[39] = "申 ";
-        $a[40] = "酉 ";
-        $a[41] = "戌 ";
-        $a[30] = "亥 ";
+        $a[31] = "子";
+        $a[32] = "丑";
+        $a[33] = "寅";
+        $a[34] = "卯";
+        $a[35] = "辰";
+        $a[36] = "巳";
+        $a[37] = "午";
+        $a[38] = "未";
+        $a[39] = "申";
+        $a[40] = "酉";
+        $a[41] = "戌";
+        $a[30] = "亥";
 
         $year = $nian1;
         $month = $yue1;
@@ -448,11 +608,11 @@ if(!function_exists('bz'))
 
         $dayun = [];
         if (($yz%2)) {
-            for ($i=1; $i<=6; $i++) {
+            for ($i=1; $i<=8; $i++) {
                 $dayun[] = $a[(20+((($mg+10)-$i)%10))].$a[(30+((($mz+12)-$i)%12))];
             }
         } else {
-            for ($i=1; $i<=6; $i++) {
+            for ($i=1; $i<=8; $i++) {
                 $dayun[] = $a[(20+((($mg+10)+$i)%10))].$a[(30+((($mz+12)+$i)%12))];
             }
         }

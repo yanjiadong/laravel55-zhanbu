@@ -18,6 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['namespace' => 'Api'], function () {
+    Route::post('/index/user','IndexController@user');   //保存用户信息
+    Route::post('/index/simple','IndexController@simple');   //获取精简版
+
+
+    Route::post('/index/my_mingpan','IndexController@my_mingpan');   //我的命盘
+
     Route::post('/index/index','IndexController@index');
 
 
