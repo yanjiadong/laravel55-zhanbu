@@ -9,6 +9,18 @@ use DB;
 
 class IndexController extends BaseController
 {
+    public function user_info(Request $request)
+    {
+        $input = $request->all();
+        $user = User::select('id','wechat_avatar','wechat_nickname','wechat_openid','wechat_original','sex','birth_year','birth_month','birth_day','birth_hour','birth_minute')->where('wechat_openid',$input['wechat_openid'])->first();
+        if(empty($user))
+        {
+            return get_error_api_response(300,'获取用户信息失败');
+        }
+
+        return get_api_response($user);
+    }
+
     /**
      * 保存用户信息
      * @param Request $request
@@ -48,26 +60,16 @@ class IndexController extends BaseController
             return get_error_api_response(300,'请输入正确的出生时');
         }
 
-        if(empty($input['type']) || !in_array($input['type'],[1,2]))
-        {
-            return get_error_api_response(300,'请输入正确的type类型');
-        }
-
         $user = User::where('wechat_openid',$input['wechat_openid'])->first();
-        if($user && $input['type'] == 2)
+
+        $input['simple_image'] = '';
+        $input['interest_info'] = '';
+        if($user)
         {
-            //修改
-            unset($input['type']);
-            $input['simple_image'] = '';
-            $input['interest_info'] = '';
             User::where('wechat_openid',$input['wechat_openid'])->update($input);
         }
         else
         {
-            if($user)
-            {
-                return get_error_api_response(300,'用户已存在');
-            }
             User::create($input);
         }
 
@@ -413,6 +415,7 @@ class IndexController extends BaseController
         //echo '比劫'.$percent3.'<br/>';
         //echo '印枭'.$percent4.'<br/>';
         //echo '正偏财'.$percent5.'<br/>';
+        //echo $strength;
         $good_bad = get_by_strength($strength);
         //print_r($good_bad);
 
@@ -551,6 +554,7 @@ class IndexController extends BaseController
 
         //print_r($result);
         User::where('wechat_openid',$wechat_openid)->update(['interest_info'=>json_encode($result)]);
+
         return get_api_response($result);
     }
 

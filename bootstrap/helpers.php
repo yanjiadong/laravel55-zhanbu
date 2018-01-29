@@ -41,23 +41,23 @@ if(!function_exists('get_by_strength'))
 {
     function get_by_strength($strength)
     {
-        if($strength >= 0 && $strength <= 10)
+        if($strength >= 0 && $strength < 11)
         {
             return ['good'=>['官杀','正偏财','食伤'],'bad'=>['印枭','比劫']];
         }
-        elseif($strength >= 11 && $strength <= 35)
+        elseif($strength >= 11 && $strength < 36)
         {
             return ['good'=>['比劫','印枭'],'bad'=>['食伤','官杀','正偏财']];
         }
-        elseif($strength >= 36 && $strength <= 45)
+        elseif($strength >= 36 && $strength < 46)
         {
             return ['good'=>['印枭','正偏财'],'bad'=>['食伤','官杀']];
         }
-        elseif($strength >= 46 && $strength <= 60)
+        elseif($strength >= 46 && $strength < 61)
         {
             return ['good'=>['官杀','正偏财'],'bad'=>['印枭','比劫']];
         }
-        elseif($strength >= 61 && $strength <= 90)
+        elseif($strength >= 61 && $strength < 91)
         {
             return ['good'=>['官杀','食伤'],'bad'=>['比劫','印枭']];
         }
