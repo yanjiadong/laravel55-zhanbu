@@ -64,6 +64,10 @@ class IndexController extends BaseController
         }
         else
         {
+            if($user)
+            {
+                return get_error_api_response(300,'用户已存在');
+            }
             User::create($input);
         }
 
