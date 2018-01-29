@@ -34,6 +34,176 @@ if(!function_exists('get_error_api_response'))
 
 }
 
+/**
+ * 根据强度获取十神对应关系
+ */
+if(!function_exists('get_by_strength'))
+{
+    function get_by_strength($strength)
+    {
+        if($strength >= 0 && $strength <= 10)
+        {
+            return ['good'=>['官杀','正偏财','食伤'],'bad'=>['印枭','比劫']];
+        }
+        elseif($strength >= 11 && $strength <= 35)
+        {
+            return ['good'=>['比劫','印枭'],'bad'=>['食伤','官杀','正偏财']];
+        }
+        elseif($strength >= 36 && $strength <= 45)
+        {
+            return ['good'=>['印枭','正偏财'],'bad'=>['食伤','官杀']];
+        }
+        elseif($strength >= 46 && $strength <= 60)
+        {
+            return ['good'=>['官杀','正偏财'],'bad'=>['印枭','比劫']];
+        }
+        elseif($strength >= 61 && $strength <= 90)
+        {
+            return ['good'=>['官杀','食伤'],'bad'=>['比劫','印枭']];
+        }
+        elseif($strength >= 91 && $strength <= 100)
+        {
+            return ['good'=>['比劫','印枭'],'bad'=>['食伤']];
+        }
+    }
+}
+
+/**
+ * 根据地支获取带有一个多个百分比的天干
+ */
+if(!function_exists('get_tiangan_by_dizhi_percent'))
+{
+    function get_tiangan_by_dizhi_percent($dizhi)
+    {
+        $result = [];
+
+        switch ($dizhi)
+        {
+            case '子':
+                $result = [['flag'=>'癸','percent'=>100]];
+                break;
+            case '丑':
+                $result = [['flag'=>'己','percent'=>70],['flag'=>'癸','percent'=>20],['flag'=>'辛','percent'=>10]];
+                break;
+            case '寅':
+                $result = [['flag'=>'甲','percent'=>70],['flag'=>'丙','percent'=>20],['flag'=>'戊','percent'=>10]];
+                break;
+            case '卯':
+                $result = [['flag'=>'乙','percent'=>100]];
+                break;
+            case '辰':
+                $result = [['flag'=>'戊','percent'=>70],['flag'=>'乙','percent'=>20],['flag'=>'癸','percent'=>10]];
+                break;
+            case '巳':
+                $result = [['flag'=>'丙','percent'=>70],['flag'=>'庚','percent'=>20],['flag'=>'戊','percent'=>10]];
+                break;
+            case '午':
+                $result = [['flag'=>'丁','percent'=>70],['flag'=>'己','percent'=>30]];
+                break;
+            case '未':
+                $result = [['flag'=>'己','percent'=>70],['flag'=>'丁','percent'=>20],['flag'=>'乙','percent'=>10]];
+                break;
+            case '申':
+                $result = [['flag'=>'庚','percent'=>70],['flag'=>'壬','percent'=>20],['flag'=>'戊','percent'=>10]];
+                break;
+            case '酉':
+                $result = [['flag'=>'辛','percent'=>100]];
+                break;
+            case '戌':
+                $result = [['flag'=>'戊','percent'=>70],['flag'=>'辛','percent'=>20],['flag'=>'丁','percent'=>10]];
+                break;
+            case '亥':
+                $result = [['flag'=>'壬','percent'=>70],['flag'=>'甲','percent'=>30]];
+                break;
+        }
+
+        return $result;
+    }
+}
+
+//获取地址五行
+if(!function_exists('get_dizhi_hang'))
+{
+    function get_dizhi_hang($dizhi)
+    {
+        $result = [];
+
+        switch ($dizhi)
+        {
+            case '子':
+                $result = [['flag'=>'water','percent'=>100]];
+                break;
+            case '丑':
+                $result = [['flag'=>'soil','percent'=>70],['flag'=>'water','percent'=>20],['flag'=>'gold','percent'=>10]];
+                break;
+            case '寅':
+                $result = [['flag'=>'wood','percent'=>70],['flag'=>'fire','percent'=>20],['flag'=>'soil','percent'=>10]];
+                break;
+            case '卯':
+                $result = [['flag'=>'wood','percent'=>100]];
+                break;
+            case '辰':
+                $result = [['flag'=>'soil','percent'=>70],['flag'=>'wood','percent'=>20],['flag'=>'water','percent'=>10]];
+                break;
+            case '巳':
+                $result = [['flag'=>'fire','percent'=>70],['flag'=>'gold','percent'=>20],['flag'=>'soil','percent'=>10]];
+                break;
+            case '午':
+                $result = [['flag'=>'fire','percent'=>70],['flag'=>'soil','percent'=>30]];
+                break;
+            case '未':
+                $result = [['flag'=>'soil','percent'=>70],['flag'=>'fire','percent'=>20],['flag'=>'wood','percent'=>10]];
+                break;
+            case '申':
+                $result = [['flag'=>'gold','percent'=>70],['flag'=>'water','percent'=>20],['flag'=>'soil','percent'=>10]];
+                break;
+            case '酉':
+                $result = [['flag'=>'gold','percent'=>100]];
+                break;
+            case '戌':
+                $result = [['flag'=>'soil','percent'=>70],['flag'=>'gold','percent'=>20],['flag'=>'fire','percent'=>10]];
+                break;
+            case '亥':
+                $result = [['flag'=>'water','percent'=>70],['flag'=>'wood','percent'=>30]];
+                break;
+        }
+
+        return $result;
+    }
+}
+
+//天干五行
+if(!function_exists('get_tiangan_hang'))
+{
+    function get_tiangan_hang($tiangan)
+    {
+        $result = '';
+        if($tiangan == '甲' || $tiangan == '乙')
+        {
+            $result = 'wood';  //木
+        }
+        elseif($tiangan == '丙' || $tiangan == '丁')
+        {
+            $result = 'fire';  //火
+        }
+        elseif($tiangan == '戊' || $tiangan == '己')
+        {
+            $result = 'soil';   //土
+        }
+        elseif($tiangan == '庚' || $tiangan == '辛')
+        {
+            $result = 'gold';   //金
+        }
+        elseif($tiangan == '壬' || $tiangan == '癸')
+        {
+            $result = 'water';   //水
+        }
+
+        return $result;
+    }
+}
+
+
 //根据地支算出多个天干
 if(!function_exists('get_tiangan_by_dizhi'))
 {
