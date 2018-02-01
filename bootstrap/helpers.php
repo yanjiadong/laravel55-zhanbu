@@ -374,7 +374,7 @@ if(!function_exists('get_day_gan_image'))
                 $image = "http://p15eu3hv7.bkt.clouddn.com/ren_1.png";
                 break;
             case '癸':
-                $image = "http://p15eu3hv7.bkt.clouddn.com/gi_1.png";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/gui_1.png";
                 break;
         }
 
