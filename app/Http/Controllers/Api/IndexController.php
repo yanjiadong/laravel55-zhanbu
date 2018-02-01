@@ -9,6 +9,21 @@ use DB;
 
 class IndexController extends BaseController
 {
+    public function openid(Request $request)
+    {
+        $code = $request->get('code');
+
+        //$appid = 'wx6724bc9f066510f7';
+        //$appsecret = '5356973396c48a9f918d4107966d1611';
+        //$weixin =  file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$appsecret&code=".$code."&grant_type=authorization_code");//通过code换取网页授权access_token
+        //$jsondecode = json_decode($weixin,true); //对JSON格式的字符串进行编码
+        //print_r($jsondecode);
+
+        $url = "https://api.weixin.qq.com/sns/jscode2session?appid=wx6724bc9f066510f7&secret=5356973396c48a9f918d4107966d1611&js_code={$code}&grant_type=authorization_code";
+        $result = weixin_curl($url);
+        return get_api_response($result);
+    }
+
     public function user_info(Request $request)
     {
         $input = $request->all();

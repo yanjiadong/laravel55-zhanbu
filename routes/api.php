@@ -23,6 +23,8 @@ Route::group(['namespace' => 'Api'], function () {
     Route::post('/index/simple','IndexController@simple');   //获取精简版
     Route::post('/index/interest','IndexController@interest');   //获取趣味版
 
+    Route::post('/index/openid','IndexController@openid');   //获取openid
+
 
     Route::post('/index/my_mingpan','IndexController@my_mingpan');   //我的命盘
 

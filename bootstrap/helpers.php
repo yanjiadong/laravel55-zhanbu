@@ -34,6 +34,33 @@ if(!function_exists('get_error_api_response'))
 
 }
 
+if(!function_exists('weixin_curl'))
+{
+    function weixin_curl($url, $type = 'GET', $param = array())
+    {
+        $type = strtoupper($type);
+
+        $ch = curl_init($url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 500);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+
+        if(!empty($param) && $type == 'POST')
+        {
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+        }
+        curl_setopt ($ch, CURLOPT_CUSTOMREQUEST, $type);
+        $result = curl_exec($ch);
+        //print_r($result);
+        if ($ch != null) curl_close($ch);
+
+        $result = json_decode($result,true);
+        return $result;
+    }
+}
+
 /**
  * 根据强度获取十神对应关系
  */
