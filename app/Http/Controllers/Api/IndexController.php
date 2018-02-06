@@ -325,7 +325,7 @@ class IndexController extends BaseController
         }
 
         $result['type'] = DB::table('wuhangyuanshen')->where('rigan',$day_tiangan)->first();
-        $result['wuhang'] = ['wood'=>$wood,'fire'=>$fire,'soil'=>$soil,'gold'=>$gold,'water'=>$water];   //最终计算出来的八字五行比例
+        $result['wuhang'] = ['wood'=>number_format($wood,1,'.',''),'fire'=>number_format($fire,1,'.',''),'soil'=>number_format($soil,1,'.',''),'gold'=>number_format($gold,1,'.',''),'water'=>number_format($water,1,'.','')];   //最终计算出来的八字五行比例
         //$result['xiji'] = DB::table('xiji')->where('key',get_tiangan_hang($day_tiangan))->get();
 
         /**
