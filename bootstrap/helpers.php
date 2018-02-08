@@ -344,48 +344,48 @@ if(!function_exists('get_day_gan_image'))
     function get_day_gan_image($day_gan)
     {
         //$image = 'http://p15eu3hv7.bkt.clouddn.com/jia_1.png';
-        $image = 'https://api.xiongmaomingli.com/image/jia1.png';
+        $image = config('app.url').'/image/jia1.png';
         switch ($day_gan)
         {
             case '甲':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/jia_1.png";
-                $image = "https://api.xiongmaomingli.com/jia1.png";
+                $image = config('app.url')."/jia1.png";
                 break;
             case '乙':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/yi_1.png";
-                $image = "https://api.xiongmaomingli.com/image/yi1.png";
+                $image = config('app.url')."/image/yi1.png";
                 break;
             case '丙':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/bing_1.png";
-                $image = "https://api.xiongmaomingli.com/image/bing1.png";
+                $image = config('app.url')."/image/bing1.png";
                 break;
             case '丁':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/ding_1.png";
-                $image = "https://api.xiongmaomingli.com/image/ding1.png";
+                $image = config('app.url')."/image/ding1.png";
                 break;
             case '戊':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/wu_1.png";
-                $image = "https://api.xiongmaomingli.com/image/wu1.png";
+                $image = config('app.url')."/image/wu1.png";
                 break;
             case '己':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/ji_1.png";
-                $image = "https://api.xiongmaomingli.com/image/ji1.png";
+                $image = config('app.url')."/image/ji1.png";
                 break;
             case '庚':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/geng_1.png";
-                $image = "https://api.xiongmaomingli.com/image/geng1.png";
+                $image = config('app.url')."/image/geng1.png";
                 break;
             case '辛':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/xin_1.png";
-                $image = "https://api.xiongmaomingli.com/image/xin1.png";
+                $image = config('app.url')."/image/xin1.png";
                 break;
             case '壬':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/ren_1.png";
-                $image = "https://api.xiongmaomingli.com/image/ren_1.png";
+                $image = config('app.url')."/image/ren_1.png";
                 break;
             case '癸':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/gui_1.png";
-                $image = "https://api.xiongmaomingli.com/image/gui_1.png";
+                $image = config('app.url')."/image/gui_1.png";
                 break;
         }
 
