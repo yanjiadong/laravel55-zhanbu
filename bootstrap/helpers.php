@@ -343,49 +343,49 @@ if(!function_exists('get_day_gan_image'))
 {
     function get_day_gan_image($day_gan)
     {
-        //$image = 'http://p15eu3hv7.bkt.clouddn.com/jia_1.png';
-        $image = config('app.url').'/image/jia1.jpg';
+        $image = 'http://p15eu3hv7.bkt.clouddn.com/jia_1.png';
+        //$image = config('app.url').'/image/jia1.jpg';
         switch ($day_gan)
         {
             case '甲':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/jia_1.png";
-                $image = config('app.url')."/image/jia1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/jia_1.png";
+                //$image = config('app.url')."/image/jia1.jpg";
                 break;
             case '乙':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/yi_1.png";
-                $image = config('app.url')."/image/yi1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/yi_1.png";
+                //$image = config('app.url')."/image/yi1.jpg";
                 break;
             case '丙':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/bing_1.png";
-                $image = config('app.url')."/image/bing1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/bing_1.png";
+                //$image = config('app.url')."/image/bing1.jpg";
                 break;
             case '丁':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/ding_1.png";
-                $image = config('app.url')."/image/ding1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/ding_1.png";
+                //$image = config('app.url')."/image/ding1.jpg";
                 break;
             case '戊':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/wu_1.png";
-                $image = config('app.url')."/image/wu1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/wu_1.png";
+                //$image = config('app.url')."/image/wu1.jpg";
                 break;
             case '己':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/ji_1.png";
-                $image = config('app.url')."/image/ji1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/ji_1.png";
+                //$image = config('app.url')."/image/ji1.jpg";
                 break;
             case '庚':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/geng_1.png";
-                $image = config('app.url')."/image/geng1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/geng_1.png";
+                //$image = config('app.url')."/image/geng1.jpg";
                 break;
             case '辛':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/xin_1.png";
-                $image = config('app.url')."/image/xin1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/xin_1.png";
+                //$image = config('app.url')."/image/xin1.jpg";
                 break;
             case '壬':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/ren_1.png";
-                $image = config('app.url')."/image/ren1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/ren_1.png";
+                //$image = config('app.url')."/image/ren1.jpg";
                 break;
             case '癸':
-                //$image = "http://p15eu3hv7.bkt.clouddn.com/gui_1.png";
-                $image = config('app.url')."/image/gui1.jpg";
+                $image = "http://p15eu3hv7.bkt.clouddn.com/gui_1.png";
+                //$image = config('app.url')."/image/gui1.jpg";
                 break;
         }
 
