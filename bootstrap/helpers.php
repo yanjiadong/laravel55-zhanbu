@@ -349,7 +349,7 @@ if(!function_exists('get_day_gan_image'))
         {
             case '甲':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/jia_1.png";
-                $image = config('app.url')."/jia1.jpg";
+                $image = config('app.url')."/image/jia1.jpg";
                 break;
             case '乙':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/yi_1.png";
@@ -381,11 +381,11 @@ if(!function_exists('get_day_gan_image'))
                 break;
             case '壬':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/ren_1.png";
-                $image = config('app.url')."/image/ren_1.jpg";
+                $image = config('app.url')."/image/ren1.jpg";
                 break;
             case '癸':
                 //$image = "http://p15eu3hv7.bkt.clouddn.com/gui_1.png";
-                $image = config('app.url')."/image/gui_1.jpg";
+                $image = config('app.url')."/image/gui1.jpg";
                 break;
         }
 
