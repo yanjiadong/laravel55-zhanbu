@@ -467,29 +467,30 @@ class IndexController extends BaseController
 
         $bad_temp = 0;
         $bad_result = [];
+        //dd($good_bad);
         foreach ($good_bad['bad'] as $bad)
         {
-            if($bad == '官杀' && $percent1 > $good_temp)
+            if($bad == '官杀' && $percent1 > $bad_temp)
             {
                 $bad_temp = $percent1;
                 $bad_result = ['name'=>$bad,'percent'=>$percent1,'value'=>'正官'];
             }
-            elseif($bad == '食伤' && $percent2 > $good_temp)
+            elseif($bad == '食伤' && $percent2 > $bad_temp)
             {
                 $bad_temp = $percent2;
                 $bad_result = ['name'=>$bad,'percent'=>$percent1,'value'=>'食神'];
             }
-            elseif($bad == '比劫' && $percent3 > $good_temp)
+            elseif($bad == '比劫' && $percent3 > $bad_temp)
             {
                 $bad_temp = $percent3;
                 $bad_result = ['name'=>$bad,'percent'=>$percent1,'value'=>'比肩'];
             }
-            elseif($bad == '印枭' && $percent4 > $good_temp)
+            elseif($bad == '印枭' && $percent4 > $bad_temp)
             {
                 $bad_temp = $percent4;
                 $bad_result = ['name'=>$bad,'percent'=>$percent1,'value'=>'正印'];
             }
-            elseif($bad == '正偏财' && $percent5 > $good_temp)
+            elseif($bad == '正偏财' && $percent5 > $bad_temp)
             {
                 $bad_temp = $percent5;
                 $bad_result = ['name'=>$bad,'percent'=>$percent1,'value'=>'正财'];
@@ -497,7 +498,7 @@ class IndexController extends BaseController
         }
 
         //print_r($good_result);
-        //print_r($bad_result);
+
 
 
         $good_result_info = DB::table('shishen')->where('value',$good_result['value'])->where('first',$day_tiangan)->first();
