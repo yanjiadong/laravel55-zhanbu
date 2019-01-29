@@ -117,7 +117,8 @@ class IndexController extends BaseController
 
         $day_gan = mb_substr($info['ganzhi_day'],0,1);
 
-        $simple_image = $user->simple_image;
+        //$simple_image = $user->simple_image;
+        $simple_image = '';
         if(empty($simple_image))
         {
             $simple_image = get_day_gan_image($day_gan);
